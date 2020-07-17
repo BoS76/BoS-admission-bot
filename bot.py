@@ -1,9 +1,16 @@
 # bot.py
 import os
+import sys
 
 import discord
+from dotenv import load_dotenv
 
-TOKEN = '{NzMzNjk4MzI3MjExOTMzNzU3.XxG8Gg.9zZ6yIYKxV_tG6TYrK6tAmR-hh8}'
+project_home = '/home/BoS76/webhook'
+if project_home not in sys.path:
+    sys.path = [project_home] + sys.path
+
+load_dotenv(os.path.join(project_home, '.env'))
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 client = discord.Client()
 
